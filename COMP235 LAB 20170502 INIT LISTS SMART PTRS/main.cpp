@@ -25,7 +25,6 @@ private:
     int capacity = 5;
     T *m_arr = new T[capacity];
     int m_size = 0;
-    
     //Helper Function:
     //    To prevent pushing beyond capacity
     void doubleCapacity();
@@ -36,21 +35,11 @@ MyStack<T>::MyStack() {/* blank constructor */};
 
 template<class T>
 MyStack<T>::MyStack(initializer_list<T> init_list) {
-
-    // measure and read out init_list
-    // cout << init_list.size() << endl;
-    
-    // init_list object has an iterator, maybe try copy data into MyStack's array container
-    // copy(init_list.begin(), init_list.end(), ostream_iterator<T>(cout, " - "));
-    
     // construct an object with init list provided
     for (auto itr = init_list.begin(); itr != init_list.end(); itr++) {
-        
         // push each itr item into the object storage array
         push(*itr);
-        
     }
-    
 };
 
 template<class T>
