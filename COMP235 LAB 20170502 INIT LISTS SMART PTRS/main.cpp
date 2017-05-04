@@ -37,10 +37,19 @@ MyStack<T>::MyStack() {/* blank constructor */};
 template<class T>
 MyStack<T>::MyStack(initializer_list<T> init_list) {
 
-    cout << init_list.size() << endl;
+    // measure and read out init_list
+    // cout << init_list.size() << endl;
+    
     // init_list object has an iterator, maybe try copy data into MyStack's array container
-    copy(init_list.begin(), init_list.end(), ostream_iterator<T>(cout, " "));
-    // copy(m_arr.begin(), m_arr.end(), ostream_iterator<T>(cout, '');
+    // copy(init_list.begin(), init_list.end(), ostream_iterator<T>(cout, " - "));
+    
+    // construct an object with init list provided
+    for (auto itr = init_list.begin(); itr != init_list.end(); itr++) {
+        
+        // push each itr item into the object storage array
+        push(*itr);
+        
+    }
     
 };
 
@@ -99,11 +108,9 @@ int main(){
         cout << stk2.top() << ' ';
         stk2.pop();
     }
-    cout << endl;
-    
     
     cout << "\nCharacter stack constructed with C++11 initializer list...\n";
-    MyStack<char> stk3{ 'C', 'O', 'M', 'P', ' ', '3', '6', '5' };
+    MyStack<char> stk3{ 'C', 'O', 'M', 'P', ' ', '2', '6', '5' };
     
     for (int i = 0; i < 8; i++)
     {
@@ -112,7 +119,6 @@ int main(){
     }
     cout << endl;
     
-    /* end prog */
     return 0;
 }
 
@@ -122,7 +128,6 @@ int main(){
  *
  
  PROGRAM 2
- 
  
  *
  *
@@ -138,7 +143,6 @@ using namespace std;
 /*
  Implement a singly-linked list using smart pointers
  */
-
 
 struct Node {
     
@@ -158,8 +162,6 @@ int main() {
     
     // use make_shared to allocate dynamic memory instead of ‘new’
     auto p = make_shared<int>(1);
-    
-    
     
     Node *headPtr = nullptr; // pointer
     Node *tailPtr = nullptr; // pointer
