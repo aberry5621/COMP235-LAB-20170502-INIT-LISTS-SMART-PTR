@@ -1,4 +1,4 @@
-#define prog 1
+#define prog 2
 #if(prog == 1)
 
 #include <initializer_list>
@@ -99,7 +99,7 @@ int main(){
     }
     
     cout << "\nCharacter stack constructed with C++11 initializer list...\n";
-    MyStack<char> stk3{ 'C', 'O', 'M', 'P', ' ', '2', '6', '5' };
+    MyStack<char> stk3{ 'C', 'O', 'M', 'P', ' ', '2', '3', '5' };
     
     for (int i = 0; i < 8; i++)
     {
@@ -111,124 +111,24 @@ int main(){
     return 0;
 }
 
-/*
- *
- *
- *
- 
- PROGRAM 2
- 
- *
- *
- */
-
-
 #elif(prog == 2)
+/*********
+ PROGRAM 2
+ *********/
+/*
+ Implement a singly-linked list using smart pointers
+ */
 
 #include <iostream>
 #include <memory>
 using namespace std;
 
-/*
- Implement a singly-linked list using smart pointers
- */
-
-struct Node {
-    
-    Node() {
-        data = 0;
-        link = nullptr;
-    }
-    int data;
-    Node *link;
-};
 
 int main() {
     
     cout << "Singly linked list with smart pointers...\n";
     
-    shared_ptr<Node> ptr = nullptr;
-    
-    // use make_shared to allocate dynamic memory instead of ‘new’
-    auto p = make_shared<int>(1);
-    
-    Node *headPtr = nullptr; // pointer
-    Node *tailPtr = nullptr; // pointer
-    auto tmpNodePtr = make_shared<Node>();
-    
-    // assign pointers
-    headPtr = new Node; // new
-    tailPtr = headPtr;
-    
-    for (int i = 99; i >= 77; i = i - 11)
-    {
-        if (i == 99) //Our first node
-        {
-            headPtr->data = i;
-            headPtr->link = nullptr;
-            tailPtr = headPtr;
-        }
-        else //Other new nodes to be linked
-        {
-            tailPtr = tailPtr->link;
-            tailPtr->data = i;
-            tailPtr->link = nullptr;
-        }
-    }
-    
-    // put a dummy head pointer in front
-    Node * dummyHead = new Node; // another new pointer
-    dummyHead->data = NULL;
-    dummyHead->link = headPtr;
-    
-    //Add a new node, value = 100 at the front
-    tmpNodePtr->data = 100;
-    tmpNodePtr->link = dummyHead->link;
-    dummyHead->link = tmpNodePtr;
-    
-    
-    //Add a new node, value = 1 at the end
-    temp->data = 1;
-    temp->link = nullptr;
-    tailPtr->link = temp; // because tailPtr was already at the end from the construction for loop
-    
-    //Add a new node, value 80, between 77 and 88
-    temp = new Node;  // pointer assign to new
-    temp->data = 80;
-    temp->link = nullptr;
-    
-    // send moving pointer to location in linked list
-    // where to perform the insert
-    cout << "Moving right along...\n";
-    
-    Node * movPtr = dummyHead->link; // start at dummy head's link
-    while (movPtr->link->data >= 80) {
-        cout << movPtr->data << ' ';
-        movPtr = movPtr->link;
-    }
-    
-    // link temp (new node 80) to same as movPtr link (pointing at 77)
-    temp->link = movPtr->link;
-    // link moving pointer link to temp
-    movPtr->link = temp;
-    // all is linked, yes?
-    
-    cout << endl;
-    
-    cout << "Moving pointer data: " << movPtr->data << ' ';
-    
-    cout << endl;
-    
-    //Display the list
-    cout << "Its the final countdown...\n";
-    temp = dummyHead;
-    while (temp != nullptr)
-    {
-        cout << temp->data << ' ';
-        temp = temp->link;
-    }
-    
-    cout << endl;
+
     
     return 0;
     
