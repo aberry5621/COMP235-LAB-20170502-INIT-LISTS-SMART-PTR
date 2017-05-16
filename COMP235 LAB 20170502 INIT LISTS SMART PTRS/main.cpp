@@ -123,15 +123,79 @@ int main(){
 #include <memory>
 using namespace std;
 
+// struct for nodes
+struct Node {
+    int data; // holds integer data of each node
+    shared_ptr<Node> link;
+    Node() : data(0), link(nullptr) {};
+    ~Node() {};
+    Node(int dataVal, shared_ptr<Node> linkPtr) : data(dataVal), link(linkPtr) {};
+};
 
 int main() {
     
     cout << "Singly linked list with smart pointers...\n";
     
+    // pointers
+    shared_ptr<Node> headPtr(new Node(10, nullptr));
+    
+    shared_ptr<Node> midPtr(new Node(20, nullptr));
+    
+    shared_ptr<Node> endPtr(new Node(30, nullptr));
 
+    headPtr->link = midPtr;
+    midPtr->link = endPtr;
+    
+    shared_ptr<Node> idxPtr;
+    idxPtr = headPtr;
+    
+    while (idxPtr != nullptr) {
+        cout << idxPtr->data << " ";
+        idxPtr = idxPtr->link;
+    }
+    
+    cout << endl;
     
     return 0;
     
 } 
 
 #endif 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
