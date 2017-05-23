@@ -1,4 +1,4 @@
-#define prog 2
+#define prog 1
 #if(prog == 1)
 
 #include <initializer_list>
@@ -77,7 +77,6 @@ int main(){
     
     for (int i = 0; i < 10; i++)
         stk1.push(i + 1);
-    
     
     for (int i = 0; i < 10; i++)
     {
